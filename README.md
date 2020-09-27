@@ -10,7 +10,7 @@ In computational detection of cyberbullying, existing work largely focused on bu
 - Vine dataset: a mobile application website that allows users to record and edit a few seconds looping videos. Each vine session also contains video description and user comments.
 
 ## Requirements
-![HENIN-model](/images/HENIN-model.png)
+![HENIN-model](/images/HENIN-model.PNG)
 
 ## Citation
 Hsin-Yu Chen and Cheng-Te Li. HENIN: Learning Heterogeneous Neural Interaction Networks for Explainable Cyberbullying Detection on Social Media. The 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP'20)
