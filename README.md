@@ -13,11 +13,11 @@ In computational detection of cyberbullying, existing work largely focused on bu
 Dataset available at https://sites.google.com/site/cucybersafety/home/cyberbullying-detection-project/dataset
 
 ## Requirements
-python>=3.5
-keras
-gensim
-network
-nltk
+* python>=3.5
+* keras
+* gensim
+* network
+* nltk
 
 ## Citation
 Hsin-Yu Chen and Cheng-Te Li. HENIN: Learning Heterogeneous Neural Interaction Networks for Explainable Cyberbullying Detection on Social Media. The 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP'20)
