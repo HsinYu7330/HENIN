@@ -108,14 +108,19 @@ def metrics(y, pred):
     
     return {'acc': acc, 'prec': prec, 'rec': rec, 'f1': f1}
 
-def Mask_y(y, train_ix, test_ix): 
-    
+
+def Mask_y(y, train_ix, test_ix):
+
+    def sample_mask(idx, l):
+        mask = np.zeros(l)
+        mask[idx] = 1
+        return np.array(mask, dtype=np.bool)
+
     y_train = np.zeros(y.shape, dtype=np.int32)
     y_test = np.zeros(y.shape, dtype=np.int32)
     y_train[train_ix] = y[train_ix]
     y_test[test_ix] = y[test_ix]
     train_mask = sample_mask(train_ix, y.shape[0])
-    
     return y_train, y_test, train_mask
 
 def genAdjacencyMatrix(X, metrics):
@@ -136,6 +141,16 @@ def genAdjacencyMatrix(X, metrics):
 
 
 def normalized_laplacian(adj, symmetric=True):
+
+    def normalize_adj(adj, symmetric):
+        if symmetric:
+            d = sp.diags(np.power(np.array(adj.sum(1)), -0.5).flatten(), 0)
+            a_norm = adj.dot(d).transpose().dot(d).tocsr()
+        else:
+            d = sp.diags(np.power(np.array(adj.sum(1)), -1).flatten(), 0)
+            a_norm = d.dot(adj).tocsr()
+        return a_norm
+    
     adj_normalized = normalize_adj(adj, symmetric)
     laplacian = sp.eye(adj.shape[0]) - adj_normalized
     return laplacian
